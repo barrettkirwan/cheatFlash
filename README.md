@@ -1,2 +1,2 @@
 # cheatFlash
-Latex flash cards with Emacs keybinding
+Latex flash cards with Emacs keybindings
