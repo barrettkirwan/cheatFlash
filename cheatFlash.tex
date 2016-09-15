@@ -1,0 +1,1082 @@
+\documentclass[avery8371]{flashcards}
+
+\cardfrontstyle{plain}
+\cardbackstyle{plain}
+% http://en.wikibooks.org/wiki/LaTeX/Macros
+% \newcommand{name}[num][default]{definition}
+\newcommand{\cmdfc}[2]{{\small\rotatebox{90}{\textbf{#1} #2}}}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{datetime}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{paralist}
+
+\begin{document}
+
+\begin{flashcard}{Regexp}
+  \rotatebox{90}{\textbf{Regexp---Anchors}}
+  \cmdfc{\^{}}{Start of line}
+  {\small
+    \rotatebox{90}{\textbf{\textbackslash A} Start of string}
+    \rotatebox{90}{\textbf{\$} End of line}
+    \rotatebox{90}{\textbf{\textbackslash Z} End of string}
+    \rotatebox{90}{\textbf{\textbackslash b} Word boundary}
+    \rotatebox{90}{\textbf{\textbackslash B} Not word boundary}
+    \rotatebox{90}{\textbf{\textbackslash \textless} Start of word}
+    \rotatebox{90}{\textbf{\textbackslash \textgreater} End of word}
+  }
+  \rotatebox{90}{\textbf{Character Classes}}
+  {\small
+    \rotatebox{90}{\textbf{\textbackslash c} Control character}
+    \rotatebox{90}{\textbf{\textbackslash  s} White space}
+  }
+  \cmdfc{\textbackslash S}{Not white space}
+  \cmdfc{\textbackslash d}{digit}
+  \cmdfc{\textbackslash D}{Not digit}
+  \cmdfc{\textbackslash w}{Word}
+  \cmdfc{\textbackslash W}{Not word}
+\end{flashcard}
+
+\begin{flashcard}{Emacs Regexp}
+  \cmdfc{.}{Any character (but newline)}
+  \cmdfc{*}{Prev $\times$ 0+}
+  \cmdfc{+}{Prev $\times$ 1+}
+  \cmdfc{?}{Prev $\times$ 0 or 1}
+  \cmdfc{\^}{Start of line}
+  \cmdfc{\$}{end of line}
+  \cmdfc{[...]}{any char in brackets}
+  \cmdfc{[\^{}..]}{any char not in brackets}
+  \cmdfc{[a-z]}{any char a to z}
+  \cmdfc{\textbackslash  }{before special char}
+  \cmdfc{\textbackslash |}{or}
+  \cmdfc{\textbackslash w}{word constituent}
+  \cmdfc{\textbackslash b}{word boundary}
+  \cmdfc{\textbackslash ( \textbackslash )}{start\textbackslash end of group}
+  \cmdfc{\textbackslash \textless\textbackslash\textgreater}{start\textbackslash end of word}
+  \cmdfc{\textbackslash \_\textless\textbackslash\_\textgreater}{start\textbackslash end of symbol}
+  \cmdfc{\textbackslash ` \textbackslash '}{start\textbackslash end buff\textbackslash strg}
+  \cmdfc{\textbackslash 1}{string matched by first grp}
+  \cmdfc{\textbackslash n}{string matched by nth grp}
+  % \cmdfc{\textbackslash \{3 \textbackslash \}}{prev char\textbackslash
+  % grp $\times$ 3}
+  % \cmdfc{\textbackslash \{3,\textbackslash \}}{prev char\textbackslash
+  % grp $\times$ 3+}
+  % \cmdfc{\textbackslash \{3,6 \textbackslash \}}{prev char\textbackslash
+  % grp $\times$ 3 to 6}
+  % \cmdfc{\textbackslash =}{match succeeds if located at pt}
+\end{flashcard}
+
+\begin{flashcard}{Org-mode Speed Commands}
+  \rotatebox{90}{\textbf{Org Speed Cmds}}
+  {\small
+    \rotatebox{90}{\textbf{0} ignore}
+    \rotatebox{90}{\textbf{h} bh/hide-other}
+    \rotatebox{90}{\textbf{i} insert-headline}
+    \rotatebox{90}{\textbf{k} kill-note-or-show-branch}
+    \rotatebox{90}{\textbf{q} bh/show-org-agenda}
+    \rotatebox{90}{\textbf{s} org-save-all-org-buf}
+    \rotatebox{90}{\textbf{w} org-refile}
+    \rotatebox{90}{\textbf{z} org-add-note}
+    \rotatebox{90}{\textbf{F} bh/restrict-or-follow}
+    \rotatebox{90}{\textbf{J} org-clock-goto}
+    \rotatebox{90}{\textbf{N} bh/narrow-to--subtree}
+    \rotatebox{90}{\textbf{P} bh/narrow-to--project}
+    \rotatebox{90}{\textbf{T} bh/org-todo}
+    \rotatebox{90}{\textbf{U} bh/narrow-up-one-level}
+    \rotatebox{90}{\textbf{W} bh/widen}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Org-mode Clocking}
+  \rotatebox{90}{\textbf{Clocking C-c C-x}}
+  {\small
+    \rotatebox{90}{\textbf{TAB}         clock-in}
+    \rotatebox{90}{\textbf{C-j}         clock-goto}
+    \rotatebox{90}{\textbf{e  }         set-effort}
+    \rotatebox{90}{\textbf{C-d}         clock-display}
+    \rotatebox{90}{\textbf{C-e}         modify-effort-est}
+    \rotatebox{90}{\textbf{C-o}         clock-out}
+    \rotatebox{90}{\textbf{C-r}         clock-report}
+    \rotatebox{90}{\textbf{C-x}         clock-cancel}
+    \rotatebox{90}{\textbf{Agenda}}
+    \rotatebox{90}{\textbf{I} clock-in current item}
+    \rotatebox{90}{\textbf{O} clock-out}
+    \rotatebox{90}{\textbf{X} cancel clock}
+    \rotatebox{90}{\textbf{J} jump to clocked now}}
+\end{flashcard}
+
+\begin{flashcard}{Org-mode Agenda Commands}
+  \rotatebox{90}{\textbf{Agenda Commands}}
+  {\small
+    \rotatebox{90}{\textbf{c} calendar}
+    \rotatebox{90}{\textbf{i} insert appt}
+    \rotatebox{90}{\textbf{d} schedule appt}
+    \rotatebox{90}{\textbf{SPC} show other window}
+    \rotatebox{90}{\textbf{TAB} goto other window}
+    \rotatebox{90}{\textbf{RET} delete other windows}
+    \rotatebox{90}{\textbf{f} forward in time}
+    \rotatebox{90}{\textbf{b} back in time}
+    \rotatebox{90}{\textbf{.} today}
+    \rotatebox{90}{\textbf{j} date to goto}
+    \rotatebox{90}{\textbf{J} goto clocked now}
+    \rotatebox{90}{\textbf{[} inactive timestamp}
+    \rotatebox{90}{\textbf{\textless} filter cat at pt}
+    \rotatebox{90}{\textbf{/} filter by tag}
+    \rotatebox{90}{\textbf{\textbackslash} refine tag filter}
+    \rotatebox{90}{\textbf{S-\textless right\textgreater} date +1}
+    \rotatebox{90}{\textbf{S-\textless left\textgreater} date -1}
+    \rotatebox{90}{\textbf{\textgreater} change timestamp}}
+\end{flashcard}
+
+\begin{flashcard}{Org-mode Remote Editing}
+  {\small\rotatebox{90}{\textbf{Remote Editing}}
+    \rotatebox{90}{\textbf{C-\textunderscore} undo}
+    \rotatebox{90}{\textbf{t} todo}
+    \rotatebox{90}{\textbf{C-k} delete item}
+    \rotatebox{90}{\textbf{C-c C-w} refile}
+    \rotatebox{90}{\textbf{:} set tags for current}
+    \rotatebox{90}{\textbf{,} set priority}
+    \rotatebox{90}{\textbf{k} set date to cursor date}
+    \rotatebox{90}{\textbf{k m} mark}
+    \rotatebox{90}{\textbf{k d} deadline}
+    \rotatebox{90}{\textbf{k s} schedule}
+    \rotatebox{90}{\textbf{k r} org capture}}
+\end{flashcard}
+
+\begin{flashcard}{Org-mode Misc}
+  \rotatebox{90}{\textbf{Org Misc}}
+  {\small
+    \rotatebox{90}{\textbf{CcCz} add logbook note}
+    \rotatebox{90}{\textbf{CcCx C-a} archive subtree}
+    \rotatebox{90}{\textbf{a} archive subtree}
+    \rotatebox{90}{\textbf{CcCx a} ARCHIVE tag}
+    \rotatebox{90}{\textbf{CcCx C-s} archive subtree}
+    \rotatebox{90}{\textbf{\$} archive subtree}
+    \rotatebox{90}{\textbf{P} agenda show priority}
+    \rotatebox{90}{\textbf{S-\textless up\textgreater} priority up}
+    \rotatebox{90}{\textbf{S-\textless down\textgreater} priority down}
+    \rotatebox{90}{\textbf{z} add note to entry}
+    \rotatebox{90}{\textbf{Cc C-s} schedule item}
+    \rotatebox{90}{\textbf{Cc C-d} set a deadline}
+    \rotatebox{90}{\textbf{Calendar Commands}}
+    \rotatebox{90}{\textbf{c} agenda-goto-cal}
+    \rotatebox{90}{\textbf{c} cal-goto-agenda}
+    \rotatebox{90}{\textbf{i} diary entry}
+    \rotatebox{90}{\textbf{C-c C-v t} tangle}}
+\end{flashcard}
+
+\begin{flashcard}{Org-mode Agenda Bulk Editing}
+  {\small\rotatebox{90}{\textbf{Bulk Editing}}
+    \rotatebox{90}{\textbf{m} mark}
+    \rotatebox{90}{\textbf{\%} mark using regexp}
+    \rotatebox{90}{\textbf{u} unmark}
+    \rotatebox{90}{\textbf{U} unmark all}
+    \rotatebox{90}{\textbf{B} bulk action}
+    \rotatebox{90}{\textbf{Br} refile}
+    \rotatebox{90}{\textbf{B\$} archive}
+    \rotatebox{90}{\textbf{BA} archive to siblings}
+    \rotatebox{90}{\textbf{Bt} change todo state}
+    \rotatebox{90}{\textbf{B+} add a tag}
+    \rotatebox{90}{\textbf{B+} remove a tag}
+    \rotatebox{90}{\textbf{Bs} schedule}
+    \rotatebox{90}{\textbf{BS} schedule randomly}
+    \rotatebox{90}{\textbf{Bd} deadline}
+    \rotatebox{90}{\textbf{Bf} function}}
+\end{flashcard}
+
+\begin{flashcard}{Org-mode Attachments}
+  {\small\rotatebox{90}{\textbf{Attachments}}
+    \rotatebox{90}{\textbf{Cc C-a} attach dispatch}
+    \rotatebox{90}{\textbf{a} attach}
+    \rotatebox{90}{\textbf{cml} CopyMoveLink attach}
+    \rotatebox{90}{\textbf{n} new attachment as buffer}
+    \rotatebox{90}{\textbf{z} sync attach dir}
+    \rotatebox{90}{\textbf{o} open attachment}
+    \rotatebox{90}{\textbf{O} open attach in Emacs}
+    \rotatebox{90}{\textbf{f} open attach dir}
+    \rotatebox{90}{\textbf{F} open attach dir in dired}
+    \rotatebox{90}{\textbf{d} delete single attach}
+    \rotatebox{90}{\textbf{D} delete all attach}
+    \rotatebox{90}{\textbf{s} set entry's attach dir}
+    \rotatebox{90}{\textbf{i} inherit attach dir}}
+\end{flashcard}
+
+\begin{flashcard}{Gnus Group Commands}
+  \rotatebox{90}{\textbf{Gnus Group Commands}}
+  {\small
+    \rotatebox{90}{\textbf{C-k}   Kill group or topic}
+    \rotatebox{90}{\textbf{U} toggle subscription}
+    \rotatebox{90}{\textbf{u}     Toggle subscription}
+    \rotatebox{90}{\textbf{C-w}   Kill region}
+    \rotatebox{90}{\textbf{C-y}   Yank last killed}
+    \rotatebox{90}{\textbf{A z}   List zombie groups}
+    \rotatebox{90}{\textbf{L}     List groups}
+    \rotatebox{90}{\textbf{l}     List  with unread}
+    \rotatebox{90}{\textbf{C}     Mark articles as read}
+    \rotatebox{90}{\textbf{s} Save newsrc}
+    \rotatebox{90}{\textbf{C-u F} Ask svr for new grps}
+    \rotatebox{90}{\textbf{S l}   Set level}
+    \rotatebox{90}{\textbf{1 g}   Checks new-level 1}
+    \rotatebox{90}{\textbf{\#}     Mark}
+    \rotatebox{90}{\textbf{G G}   Search IMAP folder}
+    \rotatebox{90}{\textbf{T n} New topic}
+    \rotatebox{90}{\textbf{T m}   Move to other topic}
+    \rotatebox{90}{\textbf{T r}   Rename a topic}
+    \rotatebox{90}{\textbf{TAB} Indent [p] unindent}
+    \rotatebox{90}{\textbf{R} Restart gnus}
+    \rotatebox{90}{\textbf{SPC} unfold/enter}}
+\end{flashcard}
+
+\begin{flashcard}{Gnus Summary Commands}
+  \rotatebox{90}{\textbf{Gnus Summary}}
+  \cmdfc{b}{article view part}
+  \cmdfc{T E}{thread expire}
+  \cmdfc{f}{follow up}
+  \cmdfc{K v}{view part}
+  \cmdfc{M b}{set bookmark}
+  \cmdfc{M B}{remove bookmark}
+  \cmdfc{S D r}{resend message}
+  \cmdfc{S D b}{resend bounced}
+  \cmdfc{S D c}{resend edit}
+  \cmdfc{x}{Limit to unread}
+  \cmdfc{l}{Go to last article}
+  \cmdfc{.}{First unread art}
+  \cmdfc{C-c C-f}{Forward}
+\end{flashcard}
+
+\begin{flashcard}{Gnus Summary Commands}
+  \rotatebox{90}{\textbf{Gnus Summary}}
+  {\small
+    \rotatebox{90}{\textbf{B m}   Move to other group}
+    \rotatebox{90}{\textbf{/s} Filter subject}
+    \rotatebox{90}{\textbf{/a} Filter author}
+    \rotatebox{90}{\textbf{/w} Undo last filter}
+    \rotatebox{90}{\textbf{M-*}   uncache article}
+    \rotatebox{90}{\textbf{S y}   Yank art into message}
+    \rotatebox{90}{\textbf{\#}     Mark article}
+    \rotatebox{90}{\textbf{M Pr} Mark region}
+    \rotatebox{90}{\textbf{M Pu} Unmark region}
+    \rotatebox{90}{\textbf{M-\&} Ex. cmd-region}
+    \rotatebox{90}{\textbf{S R} Reply}
+    \rotatebox{90}{\textbf{S W} Wide reply}
+    \rotatebox{90}{\textbf{R} Reply \& quote}
+    \rotatebox{90}{\textbf{r} Reply no quote}
+    \rotatebox{90}{\textbf{C-c C-y} Yanks quote}
+    \rotatebox{90}{\textbf{2 Som} Forward wo decode}
+    \cmdfc{C-c C-f}{Forward}
+    \rotatebox{90}{\textbf{TT} Toggle threading}
+    \rotatebox{90}{\textbf{K o} Save MIME part}}
+\end{flashcard}
+
+% \begin{flashcard}{Gnus Agent}
+%   \rotatebox{90}{\textbf{Group Agent}}
+%   {\small
+%   \cmdfc{J u}{Fetch all eligible articles in the current group}
+%   \cmdfc{J c}{Enter the Agent category buffer}
+%   \cmdfc{J s}{Fetch all eligible articles in all groups}
+%   \cmdfc{J S}{Send all sendable messages in the queue group}
+%   \cmdfc{J a}{Add the current group to an Agent category}
+%   \cmdfc{J r}{Remove the current group from its category, if any}
+%   \cmdfc{J Y}{Synchronize flags changed while unplugged with remote
+%   server}
+% }
+% \end{flashcard}
+
+% \begin{flashcard}{Gnus <Agent---Summary}
+%   \rotatebox{90}{\textbf{Summary Agent}}
+%   {\small
+%   \cmdfc{J \#}{Mark the article for downloading}
+%   \cmdfc{J M-\#}{Remove the downloading mark from the article}
+%   \cmdfc{\@}{Toggle whether to download the article}
+%   \cmdfc{J c}{Mark all articles as read}
+%   \cmdfc{J S}{Download all eligible (*note Agent Categories::) articles
+%   in this group}
+%   \cmdfc{J s}{Download all processable articles in this group.}
+%   \cmdfc{J u}{Download all downloadable articles in the current group}
+% }
+%   \rotatebox{90}{\textbf{Group Agent}}
+%   {\small
+%   \cmdfc{J a}{Add the current server to the list of servers covered by the Gnus
+%   Agent}
+%   \cmdfc{J r}{Remove the current server from the list of servers covered by the
+%   Gnus Agent}
+% }
+
+\begin{flashcard}{Ibuffer Marked Buffers}
+  {\small\rotatebox{90}{\textbf{Ibuffer Marked Buffers}}
+    \rotatebox{90}{\textbf{S} Save}
+    \rotatebox{90}{\textbf{A} View this frame}
+    \rotatebox{90}{\textbf{H} View another frame}
+    \rotatebox{90}{\textbf{V} Revert}
+    \rotatebox{90}{\textbf{T} Toggle read-only state}
+    \rotatebox{90}{\textbf{D} Kill}
+    \rotatebox{90}{\textbf{Ms a Cs} increment search}
+    \rotatebox{90}{\textbf{Ms a CMs} Isearch regexp}
+    \rotatebox{90}{\textbf{U} Replace by regexp}
+    \rotatebox{90}{\textbf{Q} Query replace}
+    \rotatebox{90}{\textbf{I} Query replace regexp}
+    \rotatebox{90}{\textbf{P} Print}
+    \rotatebox{90}{\textbf{O} List lines match regexp}
+    \rotatebox{90}{\textbf{X} Pipe contents shell}
+    \rotatebox{90}{\textbf{N} Replace contents shell}
+    \rotatebox{90}{\textbf{!} Run a shell cmd}
+    \rotatebox{90}{\textbf{E} Evaluate a form}
+    \rotatebox{90}{\textbf{W} As above, but view}
+    \rotatebox{90}{\textbf{k} Remove but don't kill}
+    \rotatebox{90}{\textbf{x} Kill all marked}}
+\end{flashcard}
+
+\begin{flashcard}{Ibuffer Marking Commands}
+  {\small\rotatebox{90}{\textbf{Ibuffer Marking}}
+    \rotatebox{90}{\textbf{m} Mark}
+    \rotatebox{90}{\textbf{t} Invert marks}
+    \rotatebox{90}{\textbf{u} Unmark}
+    \rotatebox{90}{\textbf{DEL} Unmark, move up}
+    \rotatebox{90}{\textbf{M-DEL} Unmark all}
+    \rotatebox{90}{\textbf{* M} Mark major mode}
+    \rotatebox{90}{\textbf{* u} Mark "unsaved"}
+    \rotatebox{90}{\textbf{* m} Mark modified}
+    \rotatebox{90}{\textbf{* s} Mark '*' buffers}
+    \rotatebox{90}{\textbf{* e} Mark if not exist}
+    \rotatebox{90}{\textbf{* r} Mark read-only}
+    \rotatebox{90}{\textbf{* /} Mark `dired' mode}
+    \rotatebox{90}{\textbf{* h} Mark `help-mode'}
+    \rotatebox{90}{\textbf{.} Mark older}
+    \rotatebox{90}{\textbf{d} Mark for deletion}
+    \rotatebox{90}{\textbf{\% n} Mark-name regexp}
+    \rotatebox{90}{\textbf{\% m} Mark-mode regexp}
+    \rotatebox{90}{\textbf{\% f} Mark-filename regexp}}
+\end{flashcard}
+
+\begin{flashcard}{Ibuffer Filtering Commands}
+  {\small\rotatebox{90}{\textbf{Ibuffer Filtering}}
+    \rotatebox{90}{\textbf{/ m} filter-major mode}
+    \rotatebox{90}{\textbf{/ M} filter-maj mode now}
+    \rotatebox{90}{\textbf{/ n} filter-buffer name}
+    \rotatebox{90}{\textbf{/ c} filter-buffer content}
+    \rotatebox{90}{\textbf{/ f} filter-filename}
+    \rotatebox{90}{\textbf{/ \textgreater} filter-buffer size}
+    \rotatebox{90}{\textbf{/ \textless} filter-buffer size}
+    \rotatebox{90}{\textbf{/ e} filter-Lisp predicate}
+    \rotatebox{90}{\textbf{/ s} Save current filters}
+    \rotatebox{90}{\textbf{/ r} Switch to saved filters}
+    \rotatebox{90}{\textbf{/ a} Add to current filters}
+    \rotatebox{90}{\textbf{/ o} Replace w/ logical OR}
+    \rotatebox{90}{\textbf{/ p} Remove the top filter}
+    \rotatebox{90}{\textbf{/ !} Invert top filter}
+    \rotatebox{90}{\textbf{/ d} Break down top filter}
+    \rotatebox{90}{\textbf{/ /} Remove filtering}}
+\end{flashcard}
+
+\begin{flashcard}{Ibuffer Filter Group Command}
+  {\small\rotatebox{90}{\textbf{Ibuffer Filter Group}}
+    \rotatebox{90}{\textbf{/ g} Create filter group}
+    \rotatebox{90}{\textbf{/ P} Remove top group}
+    \rotatebox{90}{\textbf{TAB} Move to next}
+    \rotatebox{90}{\textbf{M-p} Move to previous}
+    \rotatebox{90}{\textbf{/ \textbackslash} Remove active groups}
+    \rotatebox{90}{\textbf{/ S} Save groups}
+    \rotatebox{90}{\textbf{/ R} Restore saved groups}
+    \rotatebox{90}{\textbf{/ X} Delete saved groups}
+    \rotatebox{90}{\textbf{Ibuffer Sorting}}
+    \rotatebox{90}{\textbf{,} Rotate sorting modes}
+    \rotatebox{90}{\textbf{s i} Reverse sorting order}
+    \rotatebox{90}{\textbf{s a} Sort lexicographically}
+    \rotatebox{90}{\textbf{s f} Sort name}
+    \rotatebox{90}{\textbf{s v} Sort last viewing time}
+    \rotatebox{90}{\textbf{s s} Sort size}
+    \rotatebox{90}{\textbf{s m} Sort major mode}}
+\end{flashcard}
+
+\begin{flashcard}{Ibuffer Other Commands}
+  {\small\rotatebox{90}{\textbf{Ibuffer Other}}
+    \rotatebox{90}{\textbf{g} Regenerate list}
+    \rotatebox{90}{\textbf{`} Change display format}
+    \rotatebox{90}{\textbf{SPC} Move next line}
+    \rotatebox{90}{\textbf{C-p} Move previous line}
+    \rotatebox{90}{\textbf{q} Bury Ibuffer}
+    \rotatebox{90}{\textbf{?} Help}
+    \rotatebox{90}{\textbf{=} Diff buffer-file}
+    \rotatebox{90}{\textbf{RET} View}
+    \rotatebox{90}{\textbf{o} View-other window}
+    \rotatebox{90}{\textbf{C-o} View-other window ns}
+    \rotatebox{90}{\textbf{b} Bury buffer}}
+\end{flashcard}
+
+\begin{flashcard}{Workgroups}
+  \rotatebox{90}{\textbf{Workgroups C-z}}
+  {\small
+    \rotatebox{90}{\textbf{c} Create}
+    \rotatebox{90}{\textbf{A} Rename}
+    \rotatebox{90}{\textbf{v} Switch}
+    \rotatebox{90}{\textbf{n} Switch right}
+    \rotatebox{90}{\textbf{p} Swithc left}
+    \rotatebox{90}{\textbf{C-w} Toggle morph}
+    \rotatebox{90}{\textbf{r} Revert to base}
+    \rotatebox{90}{\textbf{u} Update to working}
+    \rotatebox{90}{\textbf{C} Clone}
+    \rotatebox{90}{\textbf{C-,} Move left in list}
+    \rotatebox{90}{\textbf{C-.} Move right in list}
+    \rotatebox{90}{\textbf{C-x} Swap}
+    \rotatebox{90}{\textbf{b} get-by-buffer}
+    \rotatebox{90}{\textbf{s} Save}
+    \rotatebox{90}{\textbf{l} Load}
+    \rotatebox{90}{\textbf{a} Previous}
+    \rotatebox{90}{\textbf{j} index}
+    \rotatebox{90}{\textbf{k} Kill (delete)}
+    \rotatebox{90}{\textbf{y} Yank}
+    \rotatebox{90}{\textbf{R} Revert all}
+    \rotatebox{90}{\textbf{U} Update all}
+    % \rotatebox{90}{\textbf{M-w} Working to kill rng}
+    % \rotatebox{90}{\textbf{M-W} Base to kill ring}
+    % \rotatebox{90}{\textbf{K} Delete all other grps}
+    % \rotatebox{90}{\textbf{?} help}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Info Mode Commands}
+  \rotatebox{90}{\textbf{Info}}
+  {\small
+    \rotatebox{90}{\textbf{h} Info tutorial}
+    \rotatebox{90}{\textbf{RET} Follow \@ pt}
+    \rotatebox{90}{\textbf{n} Next node}
+    \rotatebox{90}{\textbf{p} Prev}
+    \rotatebox{90}{\textbf{\^} Up}
+    \rotatebox{90}{\textbf{m} Menu itme by name}
+    \rotatebox{90}{\textbf{d} Directory node}
+    \rotatebox{90}{\textbf{\textless} Top node of file}
+    \rotatebox{90}{\textbf{[} Back a node}
+    \rotatebox{90}{\textbf{]} Forward a node}
+    \rotatebox{90}{\textbf{TAB} Cursor to next}
+    \rotatebox{90}{\textbf{M-TAB} Cursor to prev}
+    \rotatebox{90}{\textbf{f} Follow cross ref}
+    \rotatebox{90}{\textbf{l} Last node}
+    \rotatebox{90}{\textbf{r} Back after l}
+    \rotatebox{90}{\textbf{L} Visited nodes}
+    \rotatebox{90}{\textbf{T} Contents}
+    \rotatebox{90}{\textbf{g} Node by name}}
+  \cmdfc{s}{regexp search this Info file}
+\end{flashcard}
+
+\begin{flashcard}{Registers}
+  \rotatebox{90}{\textbf{Registers}}
+  {\small
+    \rotatebox{90}{\textbf{C-x r \textless CMD\textgreater R}}
+    \rotatebox{90}{\textbf{SPC} save pt \&  buffer}
+    \rotatebox{90}{\textbf{j} jump to pt \& buffer}
+    \rotatebox{90}{\textbf{s} copy text}
+    \rotatebox{90}{\textbf{i} insert text/rectangle}
+    \rotatebox{90}{\textbf{r} copy rectangle region}
+    \rotatebox{90}{\textbf{w} windows}
+    \rotatebox{90}{\textbf{f} all frames}
+    \rotatebox{90}{\textbf{j} restore frames/windows}
+    \rotatebox{90}{\textbf{M-x ap-prepend}}
+    \rotatebox{90}{\textbf{M-x prepend to register}}
+    \rotatebox{90}{\textbf{Bookmarks}}
+    \rotatebox{90}{\textbf{C-x r} Bookmark prefix}
+    \rotatebox{90}{\textbf{m \textless RET\textgreater}}
+    \rotatebox{90}{set bkmk at pt for file}
+    \rotatebox{90}{\textbf{m BKMARK \textless RET\textgreater}}
+    \rotatebox{90}{set BKMARK at pt}
+    \rotatebox{90}{\textbf{b BKMARK \textless RET\textgreater}}
+    \rotatebox{90}{jump to BKMARK}
+    \rotatebox{90}{\textbf{l} list bookmarks}}
+  \rotatebox{90}{\textbf{M-x bookmark-save}}
+\end{flashcard}
+
+\begin{flashcard}{Prelude Keybindings}
+  \rotatebox{90}{\textbf{Prelude Bindings C-c}}
+  \cmdfc{o}{open file externally}
+  \cmdfc{i}{search for symbol}
+  \cmdfc{g}{search Google}
+  \cmdfc{G}{search GitHub}
+  \cmdfc{y}{search YouTube}
+  \cmdfc{U}{search Duckduckgo}
+  \cmdfc{n}{fix indents, no whtspc}
+  \cmdfc{f}{Open recent}
+  \cmdfc{u}{new buff w/ url}
+  \cmdfc{e}{eval elisp \& replace}
+  \cmdfc{s}{swap 2 active windows}
+  \cmdfc{D}{delete file \& buff}
+  \cmdfc{d}{duplicate line}
+  \cmdfc{M-d}{dup \& comment line}
+  \cmdfc{r}{rename buff and file}
+  \cmdfc{t}{ansi-term}
+  \cmdfc{k}{kill all open buffers}
+  \cmdfc{TAB}{indent and copy}
+  \cmdfc{I}{user's init}
+  \cmdfc{S}{shell's init}
+\end{flashcard}
+
+\begin{flashcard}{Prelude Super Keybindings}
+  \rotatebox{90}{\textbf{Prelude Bindings}}
+  \cmdfc{CSRet}{insert empty above}
+  \cmdfc{Supo}{insert empty above}
+  \cmdfc{CSup}{move current up}
+  \cmdfc{MSup}{move current up}
+  \cmdfc{Sup-g}{Toggle God mode}
+  \cmdfc{Sup-r}{Recent files}
+  \cmdfc{Sup-j}{Join lines}
+  \cmdfc{Sup-k}{Kill whole line}
+  \cmdfc{Sup-m m}{Magit status}
+  \cmdfc{Sup-m l}{Magit log}
+  \cmdfc{Sup-m f}{Magit file log}
+  \cmdfc{Sup-m b}{Magit blame}
+  % \cmdfc{. +}{increment integer}
+  % \cmdfc{. -}{decrement integer}
+  % \cmdfc{. *}{multiply integer}
+  % \cmdfc{. /}{divide integer}
+  % \cmdfc{.  \textbackslash \textbackslash}{modulo integer}
+  % \cmdfc{. \^}{exp integer}
+  % \cmdfc{. \textless}{left-shift int}
+  % \cmdfc{. \textgreater}{right-shift int}
+  % \cmdfc{. \#}{convert int to base}
+  % \cmdfc{. \%}{replace int}
+  % \cmdfc{. '}{arithmetic int}
+\end{flashcard}
+
+\begin{flashcard}{Prelude Keybindings}
+  \rotatebox{90}{\textbf{Prelude Bindings}}
+  \cmdfc{C-x \textbackslash \textbackslash}{align-regexp}
+  \cmdfc{C+}{Increase font}
+  \cmdfc{C-}{Decrease font}
+  \cmdfc{CxO}{back 1 window}
+  \cmdfc{C\^}{Join two lines}
+  \cmdfc{Cxp}{proced}
+  \cmdfc{Cxm}{eshell}
+  \cmdfc{MX}{major mode Mx}
+  \cmdfc{ChA}{apropos}
+  \cmdfc{ChC-m}{Disp major bindings}
+  \cmdfc{M/}{hippie-expand}
+  \cmdfc{CxC-b}{ibuffer}
+  \cmdfc{F11}{full screen}
+  \cmdfc{F12}{Toggle menu bar}
+  \cmdfc{Cxg}{Open Magit status}
+  \cmdfc{MZ}{Zap up to char}
+  \cmdfc{CcJ or Su\textgreater}{ace-jump-buffer}
+  \cmdfc{C=}{expand-region}
+  \cmdfc{Ca}{beginning of line}
+\end{flashcard}
+
+\begin{flashcard}{Emacs Prelude Keybindings}
+  \rotatebox{90}{\textbf{Prelude Keybindings}}
+  {\small
+    \rotatebox{90}{\textbf{C-M-h} bakcward-kill-word}
+    \rotatebox{90}{\textbf{C-x \textbackslash \textbackslash} align-regexp}
+    \rotatebox{90}{\textbf{C-x O} back 1 window}
+    \rotatebox{90}{\textbf{C-c r} rename}
+    \rotatebox{90}{\textbf{C-x \^} join-line}
+    \rotatebox{90}{\textbf{M-/} hippie expand}
+    \rotatebox{90}{\textbf{C-x g} magit-status}
+    \rotatebox{90}{\textbf{C-=} er/expand-region}
+    \rotatebox{90}{\textbf{C-c w} repeat expand-region}
+    \rotatebox{90}{\textbf{BK Keybindings}}
+    \rotatebox{90}{\textbf{C-x C-i} ido-imenu}
+    \rotatebox{90}{\textbf{C-x M-f}}
+    \rotatebox{90}{ido-find-file-other-window}
+    \rotatebox{90}{\textbf{C-x C-M-f} find-file-in-project}
+    \rotatebox{90}{\textbf{C-x f} recentf-ido-find-file}
+    \rotatebox{90}{\textbf{C-x C-p} find-file-at-point}
+    \rotatebox{90}{\textbf{C-c y} bury buffer}
+    \rotatebox{90}{\textbf{C-c r} rename file}
+    \rotatebox{90}{\textbf{C-x C-o} fwd 2 windows}
+    \rotatebox{90}{\textbf{C-x C-r} rgrep}
+    \rotatebox{90}{\textbf{C-c m} rotate windows}
+    \rotatebox{90}{\textbf{C-c k} kill other buffers}}
+\end{flashcard}
+
+\begin{flashcard}{CUA Rectangle Mode}
+  \rotatebox{90}{\textbf{CUA Rectangle Mode}}
+  {\small
+    \rotatebox{90}{\textbf{RET} cursor to next corner}
+    \rotatebox{90}{\textbf{M-a} align to left}
+    \rotatebox{90}{\textbf{M-b} fill with blanks}
+    \rotatebox{90}{\textbf{M-c} close-no blanks on left}
+    \rotatebox{90}{\textbf{M-f} fill with character}
+    \rotatebox{90}{\textbf{M-i} increment numbers}
+    \rotatebox{90}{\textbf{M-k} kill as multiline text}
+    \rotatebox{90}{\textbf{M-l} downcase}
+    \rotatebox{90}{\textbf{M-m} copy as multiline text}
+    \rotatebox{90}{\textbf{M-n} fill with numbers}
+    \rotatebox{90}{\textbf{M-o} mv text to right}
+    \rotatebox{90}{\textbf{M-p} toggles straight edges}
+    \rotatebox{90}{\textbf{M-P} pad-real straight edges}
+    \rotatebox{90}{\textbf{M-q} text fill}
+    \rotatebox{90}{\textbf{M-r} regexp replace}
+    \rotatebox{90}{\textbf{M-R} reverse lines}
+    \rotatebox{90}{\textbf{M-s} fill with string}
+    \rotatebox{90}{\textbf{M-t} text fill}
+    \rotatebox{90}{\textbf{M-u} upcase}
+    % \rotatebox{90}{\textbf{M-|} shell command}
+    % \rotatebox{90}{\textbf{M-'} restrict}
+    % \rotatebox{90}{to lines with CHAR at left column}
+    % \rotatebox{90}{\textbf{M-/} restrict regexp}
+    \rotatebox{90}{\textbf{C-?} this list}
+    \rotatebox{90}{\textbf{M-C-up} scroll lines inside}
+    \rotatebox{90}{\textbf{M-C-down} ditto}}
+\end{flashcard}
+
+\begin{flashcard}{Projectile}
+  {\small\rotatebox{90}{\textbf{Projectile C-c p}}
+    \rotatebox{90}{\textbf{f} find file}
+    \rotatebox{90}{\textbf{z} add to cache}
+    \rotatebox{90}{\textbf{p} list projs}
+    \rotatebox{90}{\textbf{S} save all buff}
+    \rotatebox{90}{\textbf{D} dired root}
+    \rotatebox{90}{\textbf{e} recent files}
+    \rotatebox{90}{\textbf{m} commander}
+    \rotatebox{90}{\textbf{ESC} recent buff}
+    \rotatebox{90}{\textbf{sg} grep}
+    \rotatebox{90}{\textbf{b} list buffers}
+    \rotatebox{90}{\textbf{4f} jump to file}
+    \rotatebox{90}{\textbf{d} proj dirs}
+    \rotatebox{90}{\textbf{4d} dir switch}
+    \rotatebox{90}{\textbf{4a} switch dif ext}
+    \rotatebox{90}{\textbf{l} list dir}
+    \rotatebox{90}{\textbf{v} vc-dir}
+    \rotatebox{90}{\textbf{4b} switch buffer}
+    \rotatebox{90}{\textbf{4C-o} other window}
+    \rotatebox{90}{\textbf{a} switch dif ext}
+    \rotatebox{90}{\textbf{o} multi-occur}
+    \rotatebox{90}{\textbf{r} query-replace}
+    \rotatebox{90}{\textbf{i} invalid cache}
+    \rotatebox{90}{\textbf{k} kill all buff}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Projectile}
+  {\small\rotatebox{90}{\textbf{Projectile C-c p}}
+    \rotatebox{90}{\textbf{Mg} root in Magit}
+    \rotatebox{90}{\textbf{C=} ediff file}
+    \rotatebox{90}{\textbf{Cc=} ediff merge file}
+    \rotatebox{90}{\textbf{Ccf} dired from files}
+    \rotatebox{90}{\textbf{Cca} add files to dired}
+    \rotatebox{90}{\textbf{Ccd} rmv files to dired}
+    \rotatebox{90}{\textbf{Ma} mark all}
+    \rotatebox{90}{\textbf{MR} rename marked}
+    \rotatebox{90}{\textbf{MC} copy marked}
+    \rotatebox{90}{\textbf{MD} delete marked}
+    \rotatebox{90}{\textbf{Cc@} org link file}
+    \rotatebox{90}{\textbf{ss} ag}
+    \rotatebox{90}{\textbf{!} shell-command}
+    \rotatebox{90}{\textbf{\&} async-shell}
+    \rotatebox{90}{\textbf{c} compile}
+    \rotatebox{90}{\textbf{P} test}
+    \rotatebox{90}{\textbf{t} toggle test}
+    \rotatebox{90}{\textbf{R} regen tags}
+    \rotatebox{90}{\textbf{j} find tag}
+    \rotatebox{90}{\textbf{F} all files all proj}
+    \rotatebox{90}{\textbf{g} files at point}
+    \rotatebox{90}{\textbf{4g} context jump}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Perspective}
+  {\small\rotatebox{90}{\textbf{Perspective C-x x}}
+    \rotatebox{90}{\textbf{s} switch or create}
+    \rotatebox{90}{\textbf{k} query buff remove}
+    \rotatebox{90}{\textbf{c} query perp kill}
+    \rotatebox{90}{\textbf{r} rename current}
+    \rotatebox{90}{\textbf{a} query open buff add}
+    \rotatebox{90}{\textbf{A} add buff to current}
+    \rotatebox{90}{\textbf{i} import from another frame}
+    \rotatebox{90}{\textbf{n} switch next}
+    \rotatebox{90}{\textbf{p} switch prev}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Org-ref}
+  {\small\rotatebox{90}{\textbf{Org-ref C-c C-r}}
+    \rotatebox{90}{\textbf{n} open bibtex notes}
+    \rotatebox{90}{\textbf{p} open bibtex pdf}
+    \rotatebox{90}{\textbf{b} open in browser}
+    \rotatebox{90}{\textbf{g} get bibtex entry pdf}
+    \rotatebox{90}{\textbf{a} add entry from doi}
+    \rotatebox{90}{\textbf{u} update from doi}
+    \rotatebox{90}{\textbf{s} sort bibtex entry}
+    \rotatebox{90}{\textbf{c} clean bibtex entry}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ (Set)}
+  \rotatebox{90}{\textbf{Bookmark+}}
+  {\small
+    \rotatebox{90}{\textbf{Create/Set C-x p}}
+    \rotatebox{90}{\textbf{e}{Open bookmark list}}
+    \rotatebox{90}{\textbf{RET} autonamed here}
+    \rotatebox{90}{\textbf{c a} autoname for a file}
+    \rotatebox{90}{\textbf{c f} for a file}
+    \rotatebox{90}{\textbf{c u} for a URL}
+    \rotatebox{90}{\textbf{m} here}
+    \rotatebox{90}{\textbf{K} for the current desktop}
+    \rotatebox{90}{\textbf{y} for a bmk file}
+    \rotatebox{90}{\textbf{x} bmks temp when setting}
+    \rotatebox{90}{\textbf{y} bmk to a bmk file}
+    \rotatebox{90}{\textbf{\textless delete\textgreater} Delete bmks}
+    \rotatebox{90}{\textbf{Set the navlist to}}
+    \rotatebox{90}{\textbf{:} type you choose}
+    \rotatebox{90}{\textbf{B} bmk-list bmk}
+    \rotatebox{90}{\textbf{Open `*Bmk List*' for}}
+    \rotatebox{90}{\textbf{N} navlist}
+    \rotatebox{90}{\textbf{,} current file/buffer}}
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ (Jump)}
+  \rotatebox{90}{\textbf{Jump to (Visit) C-x j}}
+  {\small
+    \rotatebox{90}{\textbf{j} Bmk by name}
+    \rotatebox{90}{\textbf{:} Bmk by type}
+    \rotatebox{90}{\textbf{N} Bmk in the navigation list}
+    \rotatebox{90}{\textbf{h} Highlighted bmk}
+    \rotatebox{90}{\textbf{a} Autofile bmk}
+    \rotatebox{90}{\textbf{\#} Autonamed bmk}
+    \rotatebox{90}{\textbf{, \#} Autonamed bmk in buffer}
+    \rotatebox{90}{\textbf{x} Temporary bmk}
+    \rotatebox{90}{\textbf{K} Desktop bmk}
+    \rotatebox{90}{\textbf{B} Bmk-list bmk}
+    \rotatebox{90}{\textbf{y} Bmk-file bmk}
+    \rotatebox{90}{\textbf{d} Dired bmk}
+    \rotatebox{90}{\textbf{f} File or directory bmk}
+    \rotatebox{90}{\textbf{. d} Dired bmk for this dir}
+    \rotatebox{90}{\textbf{. f} file/subdir bmk in dir}
+    \rotatebox{90}{\textbf{l} Local-file bmk}
+    \rotatebox{90}{\textbf{n} Remote-file bmk}
+    \rotatebox{90}{\textbf{r} Region bmk}
+    \rotatebox{90}{\textbf{M-i} Image-file bmk}
+    \rotatebox{90}{\textbf{i} Info bmk}
+    \rotatebox{90}{\textbf{m} `man'-page bmk}}
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ (Jump)}
+  \rotatebox{90}{\textbf{Jump to (Visit) C-x j}}
+  {\small
+    \rotatebox{90}{\textbf{b} Non-file (buffer) bmk}
+    \rotatebox{90}{\textbf{g} Gnus bmk}
+    \rotatebox{90}{\textbf{u} URL bmk}
+    \rotatebox{90}{\textbf{v} Variable-list bmk}
+    \rotatebox{90}{\textbf{Bmk w/ tags}}
+    \rotatebox{90}{\textbf{t +} (any) you specify}
+    \rotatebox{90}{\textbf{t *} (all) you specify}
+    \rotatebox{90}{\textbf{t \% +} (any) regexp}
+    \rotatebox{90}{\textbf{t \% *} (all)  regexp}
+    \rotatebox{90}{\textbf{File bmk w/ tags}}
+    \rotatebox{90}{\textbf{t f +} (any) you specify}
+    \rotatebox{90}{\textbf{t f *} (all) you specify}
+    \rotatebox{90}{\textbf{t f \% +} (any) regexp}
+    \rotatebox{90}{\textbf{t f \% *} (all) regexp}
+    \rotatebox{90}{\textbf{File in this dir w/ tags}}
+    \rotatebox{90}{\textbf{t . +} (any) you specify}
+    \rotatebox{90}{\textbf{t . *} (all) you specify}
+    \rotatebox{90}{\textbf{t . \% +} (any) regexp}
+    \rotatebox{90}{\textbf{t . \% *} (all) regexp}}
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ (Tags)}
+  \rotatebox{90}{\textbf{Bookmark+ (Tags)}}
+  {\small
+    \rotatebox{90}{\textbf{T +} Add}
+    \rotatebox{90}{\textbf{T -} Remove}
+    \rotatebox{90}{\textbf{T 0} Remove all}
+    \rotatebox{90}{\textbf{T d} Remove some from all}
+    \rotatebox{90}{\textbf{T r} Rename in all}
+    \rotatebox{90}{\textbf{T l} List all}
+    \rotatebox{90}{\textbf{T e} Edit tags}
+    \rotatebox{90}{\textbf{T v} Set value}
+    \rotatebox{90}{\textbf{T \textgreater +} Add to marked}
+    \rotatebox{90}{\textbf{T \textgreater -} Remove from marked}
+    \rotatebox{90}{\textbf{Mark[Un] bmks with a tag}}
+    \rotatebox{90}{\textbf{T m[u] \%}  matches regexp}
+    \rotatebox{90}{\textbf{T m[u] +} any in a set}
+    \rotatebox{90}{\textbf{T m[u] *}  all in a set}
+    \rotatebox{90}{\textbf{T m[u] \~{} +}  not any in a set}
+    \rotatebox{90}{\textbf{T m[u] \~{} *}  not all in a set}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ Mark/Unmark}
+  {\small
+    \rotatebox{90}{\textbf{d} Flag bmk for deletion}
+    % \rotatebox{90}{\textbf{C-d} Flag bmk for deletion, up}
+    \rotatebox{90}{\textbf{m} Mark bmk}
+    \rotatebox{90}{\textbf{u} Unmark bmk)}
+    % \rotatebox{90}{\textbf{DEL} Unmark previous bmk}
+    \rotatebox{90}{\textbf{M-m} Mark all bmks}
+    \rotatebox{90}{\textbf{\% m} all matching a regexp}
+    \rotatebox{90}{\textbf{U} Unmark all bmks}
+    \rotatebox{90}{\textbf{t} Toggle marks (invert)}
+    \rotatebox{90}{\textbf{A M} autofile bmks}
+    \rotatebox{90}{\textbf{\# M} autonamed bmks}
+    \rotatebox{90}{\textbf{X M} temporary bmks}
+    \rotatebox{90}{\textbf{H M} highlighted bmks}
+    \rotatebox{90}{\textbf{M-d M-m} Dired bmks}
+    \rotatebox{90}{\textbf{F M} file \& directory bmks}
+    % \rotatebox{90}{\textbf{M-I M-M} image-file bmks}
+    \rotatebox{90}{\textbf{O M} orphaned file/dir bmks}
+    \rotatebox{90}{\textbf{B M} non-file (i.e. buffer) bmks}
+    \rotatebox{90}{\textbf{R M} region bmks}
+    \rotatebox{90}{\textbf{Y M} bmk-file bmks}
+    \rotatebox{90}{\textbf{V M} variable-list bmks}
+    \rotatebox{90}{\textbf{K M} desktop bmks}
+    \rotatebox{90}{\textbf{I M} Info bmks}
+    \rotatebox{90}{\textbf{M M} `man' page bmks}
+    \rotatebox{90}{\textbf{G M} Gnus bmks}
+    % \rotatebox{90}{\textbf{M-u M-m} URL bmks}
+    % \rotatebox{90}{\textbf{W M} W3M (URL) bmks}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Hide/Show *Bookmark List*}
+  \rotatebox{90}{\textbf{Bookmark+ Hide/Show}}
+  {\small
+    \rotatebox{90}{\textbf{.} all}
+    \rotatebox{90}{\textbf{\textgreater} Toggle only marked}
+    \rotatebox{90}{\textbf{\textless} Toggle only unmarked}
+    \rotatebox{90}{\textbf{A S} only autofile}
+    \rotatebox{90}{\textbf{\# S} only autonamed}
+    \rotatebox{90}{\textbf{X S} only temporary}
+    \rotatebox{90}{\textbf{M-d M-s} only Dired}
+    \rotatebox{90}{\textbf{F S} only file \& directory}
+    % \rotatebox{90}{\textbf{M-I M-S} only image-file}
+    \rotatebox{90}{\textbf{O S} only orphaned local file}
+    \rotatebox{90}{\textbf{B S} only non-file (i.e. buffer)}
+    \rotatebox{90}{\textbf{R S} only region}
+    \rotatebox{90}{\textbf{Y S} only bookmark-file}
+    \rotatebox{90}{\textbf{V S} only variable-list}
+    \rotatebox{90}{\textbf{K S} only desktop}
+    \rotatebox{90}{\textbf{I S} only Info}
+    \rotatebox{90}{\textbf{M S} only `man' page}
+    \rotatebox{90}{\textbf{G S} only Gnus}
+    % \rotatebox{90}{\textbf{M-u M-s} only URL}
+    % \rotatebox{90}{\textbf{W S} only W3M (URL)}
+    % \rotatebox{90}{\textbf{Incrementally}}
+    % \rotatebox{90}{\textbf{P B}  names match a regexp}
+    % \rotatebox{90}{\textbf{P F}  files match a regexp}
+    % \rotatebox{90}{\textbf{P A}  annotations match regexp}
+    % \rotatebox{90}{\textbf{P T}  tags match a regexp}
+    % \rotatebox{90}{\textbf{T S} only that have tags}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ Sort *Bookmark List*}
+  {\small
+    \rotatebox{90}{\textbf{s r} Reverse  direction}
+    % \rotatebox{90}{\textbf{s C-r} Complement predicate decisions}
+    \rotatebox{90}{\textbf{s s} Cycle orders}
+    \rotatebox{90}{\textbf{s \textgreater} marked (`\textgreater') bmks first}
+    \rotatebox{90}{\textbf{s D} flagged (`D') bmks first}
+    \rotatebox{90}{\textbf{s *} modified (`*') bmks first}
+    \rotatebox{90}{\textbf{s t} tagged (`t') bmks first}
+    \rotatebox{90}{\textbf{s b} by last buffer or file access}
+    \rotatebox{90}{\textbf{s g} by Gnus thread}
+    \rotatebox{90}{\textbf{s i} by Info}
+    \rotatebox{90}{\textbf{s k} by bmk type}
+    \rotatebox{90}{\textbf{s n} by bmk name}
+    \rotatebox{90}{\textbf{s 0} by bmk creation time}
+    \rotatebox{90}{\textbf{s d} by last bmk access time}
+    \rotatebox{90}{\textbf{s v} by bmk visit frequency}
+    \rotatebox{90}{\textbf{s u} by URL}
+    \rotatebox{90}{\textbf{s f k} by file type}
+    \rotatebox{90}{\textbf{s f n} by file name}
+    \rotatebox{90}{\textbf{s f s} by local file size}
+    \rotatebox{90}{\textbf{s f d} by last local file access}
+    \rotatebox{90}{\textbf{s f u} by last local file update}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ Highlighting}
+  \rotatebox{90}{\textbf{Bookmark+ Highlighting}}
+  {\small
+    \rotatebox{90}{\textbf{H S} Show only the Hed bmks}
+    \rotatebox{90}{\textbf{H +} Set Hing for bmk}
+    \rotatebox{90}{\textbf{H \textgreater +} Set Hing-marked bmks}
+    \rotatebox{90}{\textbf{H H} H bmk}
+    \rotatebox{90}{\textbf{H U} UnH bmk}
+    \rotatebox{90}{\textbf{H M} Mark the Hed bmks}
+    \rotatebox{90}{\textbf{H \textgreater H} H the marked bmks}
+    \rotatebox{90}{\textbf{H  \textgreater U} UnH the marked bmks}
+    \rotatebox{90}{\textbf{Prefix with C-x p}}
+    \rotatebox{90}{\textbf{h} H a bmk in current buffer}
+    \rotatebox{90}{\textbf{u} UnH a bmk in current buffer}
+    \rotatebox{90}{\textbf{H} H bmks (see prefix arg)}
+    \rotatebox{90}{\textbf{U} UnH bmks (see prefix arg)}
+    \rotatebox{90}{\textbf{=} List bmks Hed at point}
+    \rotatebox{90}{\textbf{C-u} UnH a bmk at point}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Bookmark+ Misc}
+  {\small
+    \rotatebox{90}{\textbf{r} Rename or relocate bmk}
+    \rotatebox{90}{\textbf{C-u a} Edit bmk's annotation}
+    \rotatebox{90}{\textbf{C-M-x} Toggle temp/sav status}
+    \rotatebox{90}{\textbf{M-X} Toggle temp/sav status}
+    \rotatebox{90}{\textbf{x} Delete (visible) bmks flagged}
+    \rotatebox{90}{\textbf{D} Delete (visible) bmks marked}
+    \rotatebox{90}{\textbf{M-t} Toggle showing filenames}
+    \rotatebox{90}{\textbf{C-h RET} Show information}
+    \rotatebox{90}{\textbf{\textless C-down\textgreater} Show the info, next}
+    \rotatebox{90}{\textbf{\textless C-up\textgreater} Show the info, prev}
+    \rotatebox{90}{\textbf{C-h >} Show info about marked}
+    \rotatebox{90}{\textbf{w} Show location of bmk}
+    \rotatebox{90}{\textbf{a} Show bmk's annotation}
+    \rotatebox{90}{\textbf{M-a} Show all annotations}
+    % \rotatebox{90}{\textbf{C-M-\~{}} Toggle autosaving}
+    \rotatebox{90}{\textbf{g} Refresh display}
+    \rotatebox{90}{\textbf{M-\~{}} Toggle autosaving}
+    \rotatebox{90}{\textbf{S} Save bmks now}
+    \rotatebox{90}{\textbf{C-u g} Revert to bmks in file}
+    \rotatebox{90}{\textbf{L} Switch to a diff bmk file}
+    \rotatebox{90}{\textbf{C-u L} Switch to previous}
+    \rotatebox{90}{\textbf{l} Add bmks from diff bmk file}
+    \rotatebox{90}{\textbf{M-l} Load marked bmk-file bmks}
+    \rotatebox{90}{\textbf{M-d \textgreater} Open Dired for  marked}
+    % \rotatebox{90}{\textbf{M-L} Toggle temporary-only bmking}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Dired}
+  {\small
+    \rotatebox{90}{\textbf{d} flag for deletion}
+    \rotatebox{90}{\textbf{m} Mark for later commands}
+    \rotatebox{90}{\textbf{u} Unmark}
+    \rotatebox{90}{\textbf{CxMo} omit mode}
+    \rotatebox{90}{\textbf{x} delete flagged `D'}
+    \rotatebox{90}{\textbf{RET} Find current line's file}
+    \rotatebox{90}{\textbf{o} find in Other window}
+    \rotatebox{90}{\textbf{i} Insert a subdirectory}
+    \rotatebox{90}{\textbf{CxE} add file to dired}
+    \rotatebox{90}{\textbf{CxD} unite direds}
+    \rotatebox{90}{\textbf{CxR} recent directories}
+    \rotatebox{90}{\textbf{R} Rename or move}
+    \rotatebox{90}{\textbf{C} Copy files}
+    \rotatebox{90}{\textbf{s} toggle Sorting}
+    \rotatebox{90}{\textbf{g}  read all aGain}
+    \rotatebox{90}{\textbf{SPC} move down}
+    \rotatebox{90}{\textbf{DEL} move up}
+    \rotatebox{90}{\textbf{\$} hide-subdir}
+    \rotatebox{90}{\textbf{+} create-directory}
+    \rotatebox{90}{\textbf{.} clean-directory}
+    % \rotatebox{90}{\textbf{\textless} prev-dirline}
+    \rotatebox{90}{\textbf{=} diff}
+    % \rotatebox{90}{\textbf{\textgreater} next-dirline}
+    \rotatebox{90}{\textbf{?} summary}
+    \rotatebox{90}{\textbf{)} hide details}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Dired CAPS}
+  \rotatebox{90}{\textbf{Dired}}
+  {\small
+    \rotatebox{90}{\textbf{A} search}
+    \rotatebox{90}{\textbf{B} byte-compile}
+    \rotatebox{90}{\textbf{C} copy}
+    \rotatebox{90}{\textbf{D} delete}
+    \rotatebox{90}{\textbf{F} find-marked-files}
+    \rotatebox{90}{\textbf{G} chgrp}
+    \rotatebox{90}{\textbf{H} hardlink}
+    \rotatebox{90}{\textbf{I} info}
+    \rotatebox{90}{\textbf{L} load}
+    \rotatebox{90}{\textbf{M} chmod}
+    \rotatebox{90}{\textbf{N} man}
+    \rotatebox{90}{\textbf{O} chown}
+    \rotatebox{90}{\textbf{P} print}
+    \rotatebox{90}{\textbf{Q} query-replace-regexp}
+    \rotatebox{90}{\textbf{R} rename}
+    \rotatebox{90}{\textbf{S} symlink}
+    \rotatebox{90}{\textbf{T} touch}
+    \rotatebox{90}{\textbf{U} unmark-all-marks}
+    \rotatebox{90}{\textbf{V} run-mail}
+    \rotatebox{90}{\textbf{X} shell-command}
+    \rotatebox{90}{\textbf{Y} relsymlink}
+    \rotatebox{90}{\textbf{Z} compress}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Dired}
+  \rotatebox{90}{\textbf{Dired}}
+  {\small
+    \rotatebox{90}{\textbf{\^{}} up-directory}
+    \rotatebox{90}{\textbf{a} find-alternate-file}
+    \rotatebox{90}{\textbf{d} flag-file-deletion}
+    \rotatebox{90}{\textbf{g} revert-buffer}
+    \rotatebox{90}{\textbf{h} describe-mode}
+    \rotatebox{90}{\textbf{i} maybe-insert-subdir}
+    \rotatebox{90}{\textbf{j} goto-file}
+    \rotatebox{90}{\textbf{k} do-kill-lines}
+    \rotatebox{90}{\textbf{l} do-redisplay}
+    \rotatebox{90}{\textbf{m} mark}
+    \rotatebox{90}{\textbf{n} next-line}
+    \rotatebox{90}{\textbf{o} find-file-other-window}
+    \rotatebox{90}{\textbf{p} previous-line}
+    \rotatebox{90}{\textbf{q} quit-window}
+    \rotatebox{90}{\textbf{s} sort-toggle-or-edit}
+    \rotatebox{90}{\textbf{t} toggle-marks}
+    \rotatebox{90}{\textbf{u} unmark}
+    \rotatebox{90}{\textbf{v} view-file}
+    \rotatebox{90}{\textbf{w} copy-filename-as-kill}
+    \rotatebox{90}{\textbf{x} do-flagged-delete}
+    \rotatebox{90}{\textbf{y} show-file-type}
+    \rotatebox{90}{\textbf{z} kill-this-buffer}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Dired Moves and \%}
+  \rotatebox{90}{\textbf{Dired}}
+  {\small
+    \rotatebox{90}{\textbf{\~{}} flag-backup-files}
+    \rotatebox{90}{\textbf{DEL}   unmark-backward}
+    \rotatebox{90}{\textbf{C-M-d} tree-down}
+    \rotatebox{90}{\textbf{C-M-n} next-subdir}
+    \rotatebox{90}{\textbf{C-M-p} prev-subdir}
+    \rotatebox{90}{\textbf{C-M-u} tree-up}
+    \rotatebox{90}{\textbf{M-\{}   prev-marked-file}
+    \rotatebox{90}{\textbf{M-\}}   next-marked-file}
+    \rotatebox{90}{\textbf{M-DEL} unmark-all-files}
+    \rotatebox{90}{\textbf{\% \&}   flag-garbage-files}
+    \rotatebox{90}{\textbf{\% C}   do-copy-regexp}
+    \rotatebox{90}{\textbf{\% H}   do-hardlink-regexp}
+    \rotatebox{90}{\textbf{\% R}   do-rename-regexp}
+    \rotatebox{90}{\textbf{\% S}   do-symlink-regexp}
+    % \rotatebox{90}{\textbf{\% Y}   do-relsymlink-regexp}
+    \rotatebox{90}{\textbf{\% d}   flag-files-regexp}
+    \rotatebox{90}{\textbf{\% g}   mark-containing-regexp}
+    \rotatebox{90}{\textbf{\% l}   downcase}
+    \rotatebox{90}{\textbf{\% m}   mark-files-regexp}
+    \rotatebox{90}{\textbf{\% r}   do-rename-regexp}
+    \rotatebox{90}{\textbf{\% u}   upcase}
+  }
+\end{flashcard}
+
+\begin{flashcard}{Dired *Stars*}
+  \rotatebox{90}{\textbf{Dired}}
+  {\small
+    \rotatebox{90}{\textbf{M-s} isearch}
+    \rotatebox{90}{\textbf{f C-s}      filenames}
+    \rotatebox{90}{\textbf{a C-s}  isearch}
+    \rotatebox{90}{\textbf{f C-M-s} filenames-regexp}
+    \rotatebox{90}{\textbf{a C-M-s} isearch-regexp}
+    \rotatebox{90}{\textbf{* C-n} next-marked-file}
+    \rotatebox{90}{\textbf{* C-p} prev-marked-file}
+    \rotatebox{90}{\textbf{* !}   unmark-all-marks}
+    \rotatebox{90}{\textbf{* \%}   mark-files-regexp}
+    \rotatebox{90}{\textbf{* (}   mark-sexp}
+    \rotatebox{90}{\textbf{* *}   mark-executables}
+    \rotatebox{90}{\textbf{* .}   mark-extension}
+    \rotatebox{90}{\textbf{* /}   mark-directories}
+    \rotatebox{90}{\textbf{* ?}   unmark-all-files}
+    \rotatebox{90}{\textbf{* @}   mark-symlinks}
+    \rotatebox{90}{\textbf{* O}   mark-omitted}
+    \rotatebox{90}{\textbf{* c}   change-marks}
+    \rotatebox{90}{\textbf{* m}   mark}
+    \rotatebox{90}{\textbf{* s}   mark-subdir-files}
+    \rotatebox{90}{\textbf{* t}   toggle-marks}
+    \rotatebox{90}{\textbf{* u}   unmark}
+    \rotatebox{90}{\textbf{* DEL} unmark-backward}
+  }
+\end{flashcard}
+
+\end{document}
